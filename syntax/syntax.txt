@@ -110,13 +110,13 @@ end
 
 set age = 18
 match age do
-	>= 18 => io.print("welcome to the bar")
-	< 18  => io.print("go away")
+	>= 18 => io.println("welcome to the bar")
+	< 18  => io.println("go away")
 	_ => throw panic.ValueError //throw error
 end
 
 name := "Alice"
-match name => == "Alice" => io.print("you Alice!") // short write, 
+match name => == "Alice" => io.println("you Alice!") // short write, 
 
 /* 
 short write, then "_ =>" return Nil (null)
@@ -124,30 +124,30 @@ for eximple, i write classic this match pattetn:
 
 name := "Bob"
 match name do
-    == "Bob" => io.print("you Bob")
+    == "Bob" => io.println("you Bob")
     _ => take Nil // may dont write this, will be default action
 
 my rules let short whis lines to 1 line (like line with Alice):
 name := Kate"
-match name => == "Kate" => io.print("you Kate")
+match name => == "Kate" => io.println("you Kate")
  */ 
 
 // -------ERRORS EXEPTIONS-------------
 
 try do
 	set res = num1 / num2
-	catch e => io.print($"error {e}") //short writing
+	catch e => io.println($"error {e}") //short writing
 	catch e == panic.ZeroDivision do //classic writing
-		io.print("НА НОЛЬ ДЕЛИТЬ НЕЛЬЗЯ") 
+		io.println("НА НОЛЬ ДЕЛИТЬ НЕЛЬЗЯ") 
 	end
-	finally => io.print("res = {res}")
+	finally => io.println("res = {res}")
 end
 
 // -------LOOPS----------
 
 loop do // i>=10 condition, then loop must finish
 	let i = 0;
-	io.print($"loop no {i}");
+	io.println($"loop no {i}");
 	j+=1;
 	match i do
 		== 10 => break 
@@ -157,7 +157,7 @@ end
 running = true;
 loop do 
 	let j = 0;
-	io.print($"loop no {j}");
+	io.println($"loop no {j}");
 	j+=1;
 	match j do
 		>= 20 => running = false;
@@ -171,7 +171,7 @@ end
 ifce Animals do // interface
 	void new(), // declarative method
 	void animal_voice() do // may write by defautlt action of function
-        io.print("some sound")
+        io.println("some sound")
     end, 
 	void fly_status(),
 end 
@@ -187,7 +187,7 @@ scatch Animal do
         end
 
         void animal_voice(self) do
-            io.print($"voice: {self.voice}")
+            io.println($"voice: {self.voice}")
         end
 
         void fly_status(self):bool do 
@@ -229,13 +229,13 @@ end
                 let start := time.now()
                 let result := func<AnyTypes>(AnyArgs)
                 let duration := time.now() - start
-                io.print($"duration: {duration}")
+                io.println($"duration: {duration}")
                 return None
             end
             match logging => == true do 
-                io.print("func starts")
+                io.println("func starts")
                 set res = deco() 
-                io.print("func finished")
+                io.println("func finished")
             return res
         end // return speedtest here automatic
     end
@@ -244,9 +244,9 @@ end
 
     @sppedtest(logging=true)
     void long_func(wait: int) do
-        io.print("func sleeps")
+        io.println("func sleeps")
         time.sleep(wait)
-        io.print($"func awake")
+        io.println($"func awake")
     end 
 
 
