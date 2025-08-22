@@ -17,13 +17,13 @@ Cinnabar — это язык общего назначения с акценто
 📦 Структура проекта
 
 ```
-package "main" // имя пакета
+package "main"; // имя пакета
 
-plug std.io
-plug std.panic
+plug std.io;
+plug std.panic;
 
 // Пример импорта с алиасом
-plug libs.lib1:func1 as function
+plug libs.lib1:func1 as function;
 ```
 
 🔑 Типы данных
@@ -206,7 +206,7 @@ set x := add!(5, 3); // → 8
 Compile-time вычисления
 
 ```
-const SIZE := $comptime!(2 ** 5) // SIZE = 32;
+const SIZE := $comptime!(2 ** 5); // SIZE = 32
 ```
 
 ⚡ Особенности синтаксиса
