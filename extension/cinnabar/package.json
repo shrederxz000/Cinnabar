@@ -1,0 +1,25 @@
+{
+  "name": "cinnabar",
+  "displayName": "Cinnabar",
+  "description": "Cinnabar language support ",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "cinnabar",
+      "aliases": ["cinnabar", "cinnabar"],
+      "extensions": [".cbar"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "cinnabar",
+      "scopeName": "source.cinnabar",
+      "path": "./syntaxes/cinnabar.tmLanguage.json"
+    }]
+  }
+}

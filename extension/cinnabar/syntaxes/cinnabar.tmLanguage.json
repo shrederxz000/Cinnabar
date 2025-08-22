@@ -1,0 +1,73 @@
+{
+  "scopeName": "source.cinnabar",
+  "patterns": [
+    { "include": "#keywords" },
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(package|plug|macro|void|set|let|const|match|loop|incompile|impl|ifce|end|take|break|continue)\\b",
+          "name": "keyword.control.cinnabar"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash.cinnabar"
+        },
+        {
+          "begin": "/\\*",
+          "end": "\\*/",
+          "name": "comment.block.cinnabar"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.cinnabar"
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single.cinnabar"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "\\b[0-9]+\\b",
+          "name": "constant.numeric.cinnabar"
+        },
+        {
+          "match": "\\b0x[0-9A-Fa-f]+\\b",
+          "name": "constant.numeric.hex.cinnabar"
+        },
+        {
+          "match": "\\b[01]+b\\b",
+          "name": "constant.numeric.binary.cinnabar"
+        },
+        {
+            "match": "\b!"
+        }
+      ]
+    },
+    "macros": {
+      "patterns": [
+        {
+          "match": "\\b(make_macro!|[A-Za-z_][A-Za-z0-9_]*!)",
+          "name": "entity.name.function.macro.cinnabar"
+        }
+      ]
+    }
+  }
+}

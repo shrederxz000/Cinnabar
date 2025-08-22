@@ -49,18 +49,18 @@ hashlist — множество (set)
 📝 Переменные
 
 ```
-let x := 5         // изменяемая переменная
-set y := 3         // неизменяемая
-const z := 10      // константа
+let x := 5;         // изменяемая переменная
+set y := 3;         // неизменяемая
+const z := 10;      // константа
 
-let may_be_null?   // nullable
+let may_be_null?;   // nullable
 ```
 
 Shadowing
 
 ```
-set num1 := 6
-set num1 := map(float, num1) // shadowing
+set num1 := 6;
+set num1 := map(float, num1); // shadowing
 ```
 
 📌 Правила:
@@ -75,15 +75,15 @@ const → PANIC при переобъявлении
 Лямбда
 
 ```
-set pow :int = (a, b) => a ** b
+set pow :int = lambda(a, b) => a ** b;
 ```
 
 Обычная функция
 
 ```
-void summator(a:int, b:int) do
-    take a+b
-end
+void summator(a:int, b:int) {
+    take a+b;
+}
 ```
 
 take и return взаимозаменяемы.
@@ -91,60 +91,60 @@ take и return взаимозаменяемы.
 Generics
 
 ```
-void multimmator<T: int | float>(a, b): Optional<int | float> do 
+void multimmator<T: int | float>(a, b): Optional<int | float> { 
     a * b
-end
+}
 ```
 
 🔀 Условные конструкции
 
 ```
-match age do
-    >= 18 => io.print("welcome")
-    < 18  => io.print("go away")
-    _     => throw panic.ValueError
-end
+match age {
+    >= 18 => io.print("welcome");
+    < 18  => io.print("go away");
+    _     => throw panic.ValueError;
+}
 ```
 
 Короткая форма:
 
 ```
-match name => == "Alice" => io.print("you Alice!")
+match name => == "Alice" => io.print("you Alice!");
 ```
 
 ❌ Ошибки и исключения
 
 ```
-try do
-    set res := num1 / num2
-    catch e => io.print($"error {e}")
-    catch e == panic.ZeroDivision do
-        io.print("НА НОЛЬ ДЕЛИТЬ НЕЛЬЗЯ") 
-    end
-    finally => io.print("res = {res}")
-end
+try {
+    set res := num1 / num2;
+    catch e => io.print($"error {e}");
+    catch e == panic.ZeroDivision {
+        io.print("НА НОЛЬ ДЕЛИТЬ НЕЛЬЗЯ");
+    }
+    finally => io.print("res = {res}");
+}
 ```
 
 🔁 Циклы
 Бесконечный
 
 ```
-loop do
+loop {
     ...
-end
+}
 ```
 
 С условием
 
 ```
-loop do 
+loop { 
     let i := 0
-    match i do
-        >= 10 => break
-        _ => continue
-    end
+    match i {
+        >= 10 => break;
+        _ => continue;
+    }
     ...
-end
+}
 ```
 
 📌 Управление: break, continue.
@@ -153,29 +153,29 @@ end
 Интерфейс
 
 ```
-ifce Animals do
+ifce Animals {
     void new(),
-    void animal_voice() do
-        io.print("some sound")
-    end,
+    void animal_voice() {
+        io.print("some sound");
+    },
     void fly_status(),
-end 
+} 
 ```
 
 Структура + реализация
 
 ```
-scatch Animal do
+scatch Animal {
     can_fly: bool,
     voice: string,
 
-    impl Animal(Animals) do
-        void new(can_fly, voice):self do
-            self.can_fly = can_fly
-            self.voice = voice
-        end
-    end
-end
+    impl Animal(Animals) {
+        void $new(can_fly, voice):self { // здесь волшебный метод $new()
+            self.can_fly = can_fly;
+            self.voice = voice;
+        }
+    }
+}
 ```
 
 🧩 Метапрограммирование
@@ -183,29 +183,30 @@ end
 
 ```
 @sppedtest(logging=true)
-void long_func(wait: int) do
-    io.print("func sleeps")
-    time.sleep(wait)
-    io.print("func awake")
-end 
+void long_func(wait: int) {
+    io.print("func sleeps");
+    time.sleep(wait);
+    io.print("func awake");
+} 
 ```
 
 Макросы
 
 ```
-macro add<T: int | float>(a, b) do
-    quote do
-        a + b
-    end
-end
-
-set x := add!(5, 3) // → 8
+make_macro! {
+    macro add<T: int | float>(a, b) {
+        quote {
+            a + b
+        }
+    }
+}
+set x := add!(5, 3); // → 8
 ```
 
 Compile-time вычисления
 
 ```
-const SIZE := comptime(2 ** 5) // SIZE = 32
+const SIZE := $comptime!(2 ** 5) // SIZE = 32;
 ```
 
 ⚡ Особенности синтаксиса
@@ -217,3 +218,5 @@ take и return — равнозначные ключевые слова
 Nil — null-значение
 
 Метапрограммирование через декораторы, макросы, comptime
+
+

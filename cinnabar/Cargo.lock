@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "Cinnabar"
+name = "cinnabar_lex"
 version = "0.1.0"
