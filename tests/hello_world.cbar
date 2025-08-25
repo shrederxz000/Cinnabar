@@ -1,6 +1,0 @@
-packge "hello_world";
-import std.io;
-
-void main() {
-    io.println("Hello World");
-}

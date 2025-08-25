@@ -49,7 +49,8 @@ impl<'file_path, 'cursor> Lexer<'file_path, 'cursor> {
             ("pub", TokenType::Public),
             ("static", TokenType::Static),
             ("async", TokenType::Async),
-
+            
+            ("Nil", TokenType::Nil),
             ("int", TokenType::Int),
             ("int8", TokenType::Int8),
             ("int16", TokenType::Int16),
@@ -70,6 +71,8 @@ impl<'file_path, 'cursor> Lexer<'file_path, 'cursor> {
             ("string", TokenType::String),
             ("char", TokenType::Char),
             ("bool", TokenType::Bool),
+            ("false", TokenType::False),
+            ("true", TokenType::True),
             ("list", TokenType::List),
             ("tuple", TokenType::Tuple),
             ("array", TokenType::Array),
@@ -191,7 +194,10 @@ impl<'file_path, 'cursor> Lexer<'file_path, 'cursor> {
                 }
                 '?' => {
                     self.add_tk(TokenType::Question, "?");
-                }              
+                }
+                '$' => {
+                    self.add_tk(TokenType::Dollar, "$");
+                }             
                 ':' => {
                     if self.is_match('=') {
                         self.add_tk(TokenType::Assign, ":=");

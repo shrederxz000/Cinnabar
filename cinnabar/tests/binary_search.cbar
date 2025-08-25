@@ -1,4 +1,4 @@
-package "bynary_search";
+package "binary_search";
 plug std.io;
 plug rand;
 plug tools.make_macro;
@@ -37,11 +37,11 @@ void binary_search(array:arr[int], target:int left:int=0, right:int=Nil): int {
 
 
 void main() {
-    сomptime {
+    
         let some_array : arr[int, 100];
         rnd_arr!(some_array); // хочу, чтоб сгенерировался массив на этапе компиляции и не менялся в программе
-    }
-    io.print("Введите число для поиска (0..100): ");
+    
+    io.println("Введите число для поиска (0..100): ");
     let target_num:int = io.inputln();
     result = binary_search(some_array, target_num);
     io.println($"target = {target_num}, result = {result}");
