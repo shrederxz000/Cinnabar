@@ -1,6 +1,7 @@
 [workspace]
-members = [ 
+members = [ "crates/cinnabar", 
     "crates/cinnabar_common",
     "crates/cinnabar_lex",
+    
 ]
 resolver = "3"

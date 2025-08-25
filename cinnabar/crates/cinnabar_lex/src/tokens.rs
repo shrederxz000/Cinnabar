@@ -122,7 +122,6 @@ pub enum TokenType {
     //
     EOF, //end of file
     Comment,
-    Witespaces,
 
 }
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
