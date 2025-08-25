@@ -1,3 +1,5 @@
+use cinnabar_common::address::Address;
+
 #[derive(Debug, Clone, Eq, PartialEq, Copy, Hash)]
 #[allow(dead_code)]
 pub enum TokenType {
@@ -22,8 +24,8 @@ pub enum TokenType {
     RParen,     // )
     LBrace,     // {
     RBrace,     // }
-    Lbracket,   // [
-    Rbracket,   // ]
+    LBracket,   // [
+    RBracket,   // ]
     Colon,      // :
     Semi,       // ;
     Comma,      // ,
@@ -122,10 +124,17 @@ pub enum TokenType {
     Comment,
     Witespaces,
 
-
-
-
-
+}
+#[derive(Debug, Clone, Eq, PartialEq, Hash)]
+pub struct Token {
+    pub token_type:TokenType,
+    pub value: String,
+    pub address: Address,
 }
 
+impl Token {
+    pub fn new(token_type:TokenType, value: String, address:Address) -> Token {
+        Token {token_type, value, address,}
+    }
+}
 

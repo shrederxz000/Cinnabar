@@ -3,5 +3,12 @@
 version = 4
 
 [[package]]
+name = "cinnabar_common"
+version = "0.1.0"
+
+[[package]]
 name = "cinnabar_lex"
 version = "0.1.0"
+dependencies = [
+ "cinnabar_common",
+]
